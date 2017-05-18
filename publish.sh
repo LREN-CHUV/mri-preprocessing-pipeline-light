@@ -67,6 +67,9 @@ if test -z "(git rev-list --max-count 1 deploy..master)"; then
   git commit -S -m "Signoff" signoffs.md
   # Bumpversion v0.5.3 does not support annotated tags nor signed tags
   git tag -s  -a -m "Signoff from $USER" "$updated_version"
+else
+  echo "You need to merge deploy branch with master branch"
+  exit 1
 fi
 
 git push origin deploy
