@@ -31,7 +31,7 @@ select_part() {
   esac
 }
 
-if test -z "(git rev-list --max-count 1 deploy..master)"; then
+if test -z "$(git rev-list --max-count 1 deploy..master)"; then
   git merge --no-ff master
   latest_version=$(git describe --abbrev=00 || \
     (bumpversion --dry-run --list patch | grep current_version | sed -r s,"^.*=",,) || echo '0.0.1')
