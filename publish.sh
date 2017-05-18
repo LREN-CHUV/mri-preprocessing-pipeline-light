@@ -69,6 +69,7 @@ if test -z "$(git rev-list --max-count 1 deploy..master)"; then
   git tag -s  -a -m "Signoff from $USER" "$updated_version"
 else
   echo "You need to merge deploy branch with master branch"
+  echo "git merge master"
   exit 1
 fi
 
